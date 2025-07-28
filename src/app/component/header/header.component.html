@@ -1,0 +1,42 @@
+<!-- <nav class="tab-container">
+  <a routerLink="/home" class="tab tab--1 .tab_label" routerLinkActive="active"
+    >Home</a
+  >
+  <a routerLink="/wishlist" routerLinkActive="active">saved</a>
+  <a routerLink="/planner" routerLinkActive="active">planner</a>
+</nav> -->
+
+<!-- From Uiverse.io by zanina-yassine -->
+<div class="tab-container">
+  <input
+    type="radio"
+    name="tab"
+    id="tab1"
+    class="tab tab--1"
+    routerLink="/home"
+    routerLinkActive="active"
+  />
+  <label class="tab_label" for="tab1">Home</label>
+
+  <input
+    type="radio"
+    name="tab"
+    id="tab2"
+    class="tab tab--2"
+    routerLink="/planner"
+    routerLinkActive="active"
+  />
+  <label class="tab_label" for="tab2">Planner</label>
+
+  <input
+    type="radio"
+    name="tab"
+    id="tab3"
+    class="tab tab--3"
+    routerLink="/wishlist"
+    routerLinkActive="active"
+  />
+  <label class="tab_label" for="tab3">Wishlist</label>
+
+  <div class="indicator"></div>
+</div>

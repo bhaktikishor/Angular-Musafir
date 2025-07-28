@@ -1,0 +1,55 @@
+<div class="home-container">
+  <h2>Explore Destinations</h2>
+
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Search destination"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+    />
+    <div class="filter-buttons">
+      <button
+        (click)="setFilter('all')"
+        [class.active]="selectedType === 'all'"
+      >
+        All
+      </button>
+      <button
+        (click)="setFilter('beach')"
+        [class.active]="selectedType === 'beach'"
+      >
+        Beach
+      </button>
+      <button
+        (click)="setFilter('mountain')"
+        [class.active]="selectedType === 'mountain'"
+      >
+        mountain
+      </button>
+      <button
+        (click)="setFilter('city')"
+        [class.active]="selectedType === 'city'"
+      >
+        city
+      </button>
+    </div>
+  </div>
+  <div class="sort-buttons">
+    <button (click)="setSort('asc')">Sort Price: Low → High</button>
+    <button (click)="setSort('desc')">Sort Price: High → Low</button>
+  </div>
+  <div class="cards">
+    <div class="card" *ngFor="let destination of filteredDestinations">
+      <img [src]="destination.image" [alt]="destination.name" />
+      <h3>
+        {{ destination.name }}
+      </h3>
+      <p>
+        {{ destination.country }}
+      </p>
+      <p class="price">₹{{ destination.price }}</p>
+      <button (click)="addToWishlist(destination)">Add to Wishlist</button>
+    </div>
+  </div>
+</div>

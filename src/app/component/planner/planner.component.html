@@ -1,0 +1,58 @@
+<div class="planner-container">
+  <h2>Plan Your Trip</h2>
+
+  <form (ngSubmit)="submitPlan()" #plannerForm="ngForm">
+    <div class="form-group">
+      <label for="destination">Destination</label>
+      <input
+        type="text"
+        id="destination"
+        name="destination"
+        [(ngModel)]="trip.destination"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input
+        type="date"
+        id="startDate"
+        name="startDate"
+        [(ngModel)]="trip.startDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input
+        type="date"
+        id="endDate"
+        name="endDate"
+        [(ngModel)]="trip.endDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea
+        id="notes"
+        name="notes"
+        rows="4"
+        [(ngModel)]="trip.notes"
+      ></textarea>
+    </div>
+
+    <button type="submit" [disabled]="!plannerForm.form.valid">
+      Save Plan
+    </button>
+  </form>
+
+  <div class="plan-summary" *ngIf="submitted">
+    <h3>Your Trip Plan</h3>
+    <p><strong>Destination:</strong> {{ trip.destination }}</p>
+    <p><strong>Dates:</strong> {{ trip.startDate }} - {{ trip.endDate }}</p>
+    <p><strong>Notes:</strong> {{ trip.notes }}</p>
+  </div>
+</div>
